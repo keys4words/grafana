@@ -1,0 +1,23 @@
+version: '3'
+services:
+
+  # nginx:
+  #   image: nginx
+  #   volumes:
+  #     - ./templates:/etc/nginx/templates
+  #   ports:
+  #     - "8080:80"
+  #   environment:
+  #     - NGINX_HOST=foobar.com
+  #     - NGINX_PORT=80
+
+   
+  grafana:
+    image: grafana/grafana-enterprise
+    ports:
+      - "3000:3000"
+    container_name: grafana
+    restart: always
+    network_mode: host
+    volumes:
+      - ./grafana.ini:/etc/grafana/grafana.ini
